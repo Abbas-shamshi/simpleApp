@@ -26,37 +26,10 @@ export default class DistanceVC extends Component {
         navName: "Distance"
     };
 
-    //  ======================Function To Calculate Different Distance Metric Conversion ===================
-    kmToMiles = (valueA) => {
-        this.setState({
-            valueA,
-            valueB: String((parseInt(valueA) / 1.609).toFixed(2)),
-        });
-    };
-    milesToKm = (valueB) => {
-        this.setState({
-            valueB,
-            valueA: String((parseInt(valueB) * 1.609).toFixed(2)),
-        });
-    };
-    cmToMeter = (valueC) => {
-        this.setState({
-            valueC,
-            valueD: String((parseInt(valueC) / 100).toFixed(2)),
-        });
-    };
-    meterToCm = (valueD) => {
-        this.setState({
-            valueD,
-            valueC: String((parseInt(valueD) * 100).toFixed(2)),
-        });
-    };
-
-    //=============================================================================================
 
 
 
-    //====================Identify Which conversion to Calcualate==================
+    //========================= Identify and Calculate ================================
 
     converter(value, input) {
         console.log(input);
@@ -148,13 +121,13 @@ export default class DistanceVC extends Component {
             }
 
         }
-
-        // =========================================================================
-
-
-        // ================Select different conversion options=======================
-
     }
+
+    // =========================================================================
+
+
+    // ================Select different conversion options=======================
+
     valuePicker(itemValue, pickerNO) {
         if (pickerNO == 'picker1') {
             this.setState({
@@ -222,9 +195,9 @@ export default class DistanceVC extends Component {
                             <Image
                                 style={globalStyle.currencyImage}
                                 source={{ uri: this.state.exchangeImage }} />
-
                         </View>
-                        {/* Select Differewnt Conversion Options */}
+
+                        {/* Select Different Conversion Options */}
                         <View style={globalStyle.dropDownContainer}>
                             <Picker
                                 selectedValue={this.state.from}
