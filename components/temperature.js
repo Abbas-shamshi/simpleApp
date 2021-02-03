@@ -42,6 +42,78 @@ export default class TemperatureVC extends Component {
     }
     // =====================================================
 
+    // ============Select different conversion options=======
+
+    valuePicker(itemValue, pickerNO) {
+        if (pickerNO == 'picker1') {
+            this.setState({
+                from: itemValue,
+                ValueA: '0',
+                ValueB: '0',
+            })
+        } else if (pickerNO == 'picker2') {
+            this.setState({
+                to: itemValue,
+                ValueA: '0',
+                ValueB: '0',
+            })
+        }
+    }
+    //   =============================================================
+
+    //==============Identify Which conversion to Calcualate============
+    converter(value, input) {
+        console.log(input);
+    
+        if (input == 'value1') {
+          this.setState({
+            ValueA: value,
+          })
+          if (this.state.from == 'Celsius' && this.state.to == 'Kelvin') {
+            this.setState({
+              ValueB: String((parseInt(value) + 273.15).toFixed(2)),
+            });
+            console.log('Celsius TO Kelvin')
+          } else if (this.state.from == 'Celsius' && this.state.to == 'Frhn') {
+            this.setState({
+              ValueB: String(((parseInt(value) * (9 / 5) + 32)).toFixed(2)),
+            });
+            console.log('Celsius TO Frhn')
+          } else if (this.state.from == 'Kelvin' && this.state.to == 'Celsius') {
+            this.setState({
+              ValueB: String((parseInt(value) - 273.15).toFixed(2)),
+            });
+            console.log('Kelvin TO Celsius')
+          } else if (this.state.from == 'Kelvin' && this.state.to == 'Frhn') {
+            this.setState({
+              ValueB: String(((parseInt(value) - 273.15) * (9 / 5) + 32).toFixed(2)),
+            });
+            console.log('Kelvin TO Frhn')
+          } else if (this.state.from == 'Frhn' && this.state.to == 'Celsius') {
+            this.setState({
+              ValueB: String(((parseInt(value) - 32) * (5 / 9)).toFixed(2)),
+            });
+            console.log('Frhn TO Celsius')
+          } else if (this.state.from == 'Frhn' && this.state.to == 'Kelvin') {
+            this.setState({
+              ValueB: String(((parseInt(value) - 32) * (5 / 9) + 273.15).toFixed(2)),
+            });
+            console.log('Frhn TO Kelvin')
+          } else if (this.state.from == 'Celsius' && this.state.to == 'Celsius') {
+            this.setState({
+              ValueB: value,
+            });
+            console.log('Celsius TO Celsius')
+          } else if (this.state.from == 'Kelvin' && this.state.to == 'Kelvin') {
+            this.setState({
+              ValueB: value,
+            });
+            console.log('Kelvin TO Kelvin')
+          }
+    
+        } 
+      }
+    //   =============================================================
 
 
     render() {
