@@ -22,6 +22,137 @@ export default class WeightVC extends Component {
         exchangeImage: 'https://newtonfoxbds.com/wp-content/uploads/2017/01/Two_way-data-exchange.gif',
     };
 
+    // ================To Navigate=======================
+
+    navigator(value) {
+        console.log("Hello navigation")
+
+    }
+
+    //   ==================================================
+
+
+    // =====================To reset Values ===============
+    clear = () => {
+        this.setState({
+            ValueA: '',
+            ValueB: '',
+        })
+    }
+    // =====================================================
+
+    // ============Select different conversion options=======
+    valuePicker(itemValue, pickerNO) {
+        if (pickerNO == 'picker1') {
+            this.setState({
+                from: itemValue,
+                ValueA: '',
+                ValueB: '0',
+            })
+        } else if (pickerNO == 'picker2') {
+            this.setState({
+                to: itemValue,
+                ValueA: '',
+                ValueB: '',
+            })
+        }
+    }
+
+    // ================================================================
+
+    //==============Identify Which conversion to Calcualate============
+
+    converter(value, input) {
+        console.log(input);
+
+        if (input == 'value1') {
+            this.setState({
+                ValueA: value,
+            })
+            if (this.state.from == 'KG' && this.state.to == 'Pound') {
+                this.setState({
+                    ValueB: String((parseInt(value) * 2.2).toFixed(2)),
+                });
+                console.log('KM TO CM')
+            } else if (this.state.from == 'KG' && this.state.to == 'Gram') {
+                this.setState({
+                    ValueB: String((parseInt(value) * 1000).toFixed(2)),
+                });
+                console.log('KM TO Mile')
+            } else if (this.state.from == 'KG' && this.state.to == 'Ounces') {
+                this.setState({
+                    ValueB: String((parseInt(value) * 35.274).toFixed(2)),
+                });
+                console.log('KM TO Meter')
+            } else if (this.state.from == 'Pound' && this.state.to == 'KG') {
+                this.setState({
+                    ValueB: String((parseInt(value) / 2.20).toFixed(2)),
+                });
+                console.log('CM TO KM')
+            } else if (this.state.from == 'Pound' && this.state.to == 'Gram') {
+                this.setState({
+                    ValueB: String((parseInt(value) * 454).toFixed(2)),
+                });
+                console.log('CM TO Mile')
+            } else if (this.state.from == 'Pound' && this.state.to == 'Ounces') {
+                this.setState({
+                    ValueB: String((parseInt(value) * 16).toFixed(2)),
+                });
+                console.log('CM TO Meter')
+            } else if (this.state.from == 'Gram' && this.state.to == 'KG') {
+                this.setState({
+                    ValueB: String((parseInt(value) / 1000).toFixed(2)),
+                });
+                console.log('Mile TO KM')
+            } else if (this.state.from == 'Gram' && this.state.to == 'Pound') {
+                this.setState({
+                    ValueB: String((parseInt(value) / 454).toFixed(2)),
+                });
+                console.log('Mile TO CM')
+            } else if (this.state.from == 'Gram' && this.state.to == 'Ounces') {
+                this.setState({
+                    ValueB: String((parseInt(value) / 28.35).toFixed(2)),
+                });
+                console.log('Mile TO Meter')
+            } else if (this.state.from == 'Ounces' && this.state.to == 'KG') {
+                this.setState({
+                    ValueB: String((parseInt(value) / 35.2).toFixed(2)),
+                });
+                console.log('Meter TO KM')
+            } else if (this.state.from == 'Ounces' && this.state.to == 'Pound') {
+                this.setState({
+                    ValueB: String((parseInt(value) / 16).toFixed(2)),
+                });
+                console.log('Meter TO CM')
+            } else if (this.state.from == 'Ounces' && this.state.to == 'Gram') {
+                this.setState({
+                    ValueB: String((parseInt(value) * 28.3).toFixed(2)),
+                });
+                console.log('Meter TO Mile')
+            } else if (this.state.from == 'Ounces' && this.state.to == 'Ounces') {
+                this.setState({
+                    ValueB: value,
+                });
+                console.log('Meter TO Meter')
+            } else if (this.state.from == 'Gram' && this.state.to == 'Gram') {
+                this.setState({
+                    ValueB: value,
+                });
+                console.log('Mile TO Mile')
+            } else if (this.state.from == 'Pound' && this.state.to == 'Pound') {
+                this.setState({
+                    ValueB: value,
+                });
+                console.log('KM TO KM')
+            } else if (this.state.from == 'KG' && this.state.to == 'KG') {
+                this.setState({
+                    ValueB: value,
+                });
+                console.log('CM TO CM')
+            }
+        }
+    }
+    // ================================================================
 
     render() {
         return (
