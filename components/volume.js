@@ -25,6 +25,140 @@ export default class VolumeVC extends Component {
     };
 
 
+    // ================To Navigate=======================
+
+    navigator(value) {
+        console.log("Hello navigation")
+
+    }
+
+    //   ==================================================
+
+
+    // =====================To reset Values ===============
+    clear = () => {
+        this.setState({
+            ValueA: '',
+            ValueB: '',
+        })
+    }
+    // =====================================================
+
+    // ============Select different conversion options=======
+
+    valuePicker(itemValue, pickerNO) {
+        if (pickerNO == 'picker1') {
+            this.setState({
+                from: itemValue,
+                ValueA: '',
+                ValueB: '',
+            })
+        } else if (pickerNO == 'picker2') {
+            this.setState({
+                to: itemValue,
+                ValueA: '',
+                ValueB: '',
+            })
+        }
+    }
+
+    // ================================================================
+
+
+    //==============Identify Which conversion to Calcualate============
+    converter(value, input) {
+        console.log(input);
+
+        if (input == 'value1') {
+            this.setState({
+                ValueA: value,
+            })
+            if (this.state.from == 'Ltr' && this.state.to == 'Ml') {
+                this.setState({
+                    ValueB: String((parseInt(value) * 1000).toFixed(2)),
+                });
+                console.log('Ltr TO Ml')
+            } else if (this.state.from == 'Ltr' && this.state.to == 'Gln') {
+                this.setState({
+                    ValueB: String((parseInt(value) / 3.785).toFixed(2)),
+                });
+                console.log('Ltr TO Gln')
+            } else if (this.state.from == 'Ltr' && this.state.to == 'Pint') {
+                this.setState({
+                    ValueB: String((parseInt(value) * 2.113).toFixed(2)),
+                });
+                console.log('Ltr TO Pint')
+            } else if (this.state.from == 'Ml' && this.state.to == 'Ltr') {
+                this.setState({
+                    ValueB: String((parseInt(value) / 1000).toFixed(2)),
+                });
+                console.log('Ml TO Ltr')
+            } else if (this.state.from == 'Ml' && this.state.to == 'Gln') {
+                this.setState({
+                    ValueB: String((parseInt(value) / 3785).toFixed(2)),
+                });
+                console.log('Ml TO Gln')
+            } else if (this.state.from == 'Ml' && this.state.to == 'Pint') {
+                this.setState({
+                    ValueB: String((parseInt(value) / 473).toFixed(2)),
+                });
+                console.log('Ml TO Pint')
+            } else if (this.state.from == 'Gln' && this.state.to == 'Ltr') {
+                this.setState({
+                    ValueB: String((parseInt(value) * 3.785).toFixed(2)),
+                });
+                console.log('Gln TO Ltr')
+            } else if (this.state.from == 'Gln' && this.state.to == 'Ml') {
+                this.setState({
+                    ValueB: String((parseInt(value) * 3785).toFixed(2)),
+                });
+                console.log('Gln TO Ml')
+            } else if (this.state.from == 'Gln' && this.state.to == 'Pint') {
+                this.setState({
+                    ValueB: String((parseInt(value) * 8).toFixed(2)),
+                });
+                console.log('Gln TO Pint')
+            } else if (this.state.from == 'Pint' && this.state.to == 'Ltr') {
+                this.setState({
+                    ValueB: String((parseInt(value) / 2.113).toFixed(2)),
+                });
+                console.log('Pint TO Ltr')
+            } else if (this.state.from == 'Pint' && this.state.to == 'Ml') {
+                this.setState({
+                    ValueB: String((parseInt(value) * 473).toFixed(2)),
+                });
+                console.log('Pint TO Ml')
+            } else if (this.state.from == 'Pint' && this.state.to == 'Gln') {
+                this.setState({
+                    ValueB: String((parseInt(value) / 8).toFixed(2)),
+                });
+                console.log('Pint TO Gln')
+            } else if (this.state.from == 'Pint' && this.state.to == 'Pint') {
+                this.setState({
+                    ValueB: value,
+                });
+                console.log('Pint TO Pint')
+            } else if (this.state.from == 'Gln' && this.state.to == 'Gln') {
+                this.setState({
+                    ValueB: value,
+                });
+                console.log('Gln TO Gln')
+            } else if (this.state.from == 'Ltr' && this.state.to == 'Ltr') {
+                this.setState({
+                    ValueB: value,
+                });
+                console.log('Ltr TO Ltr')
+            } else if (this.state.from == 'Ml' && this.state.to == 'Ml') {
+                this.setState({
+                    ValueB: value,
+                });
+                console.log('Ml TO Ml')
+            }
+        }
+    }
+
+    //   =============================================================
+
     render() {
         return (
             <ScrollView>
