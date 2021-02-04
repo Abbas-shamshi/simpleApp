@@ -105,6 +105,7 @@ export default class Currency extends Component {
                             </Picker>
                         </View>
                     </View>
+
                     {/* Exchange Image==== */}
                     <View style={globalStyle.conversionContainer}>
                         <View style={globalStyle.imageConatiner}>
@@ -157,7 +158,6 @@ export default class Currency extends Component {
                             <TextInput
                                 style={globalStyle.inputBox}
                                 placeholder={'Enter Value'}
-
                                 keyboardType={'numeric'}
                                 value={this.state.ValueA}
                                 onChangeText={this.converterA}
@@ -174,7 +174,6 @@ export default class Currency extends Component {
                             <TextInput
                                 style={globalStyle.inputBox}
                                 placeholder={'Enter Value'}
-
                                 keyboardType={'numeric'}
                                 value={this.state.ValueB}
                                 onChangeText={(value) => this.converterB(value)}

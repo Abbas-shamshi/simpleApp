@@ -8,7 +8,6 @@ import {
     TextInput,
 } from 'react-native';
 import { Picker } from '@react-native-community/picker';
-
 import globalStyle from '../style'
 
 export default class TemperatureVC extends Component {
@@ -22,14 +21,12 @@ export default class TemperatureVC extends Component {
         to: 'Kelvin',
         exchangeImage: 'https://newtonfoxbds.com/wp-content/uploads/2017/01/Two_way-data-exchange.gif',
     };
-
     // ================To Navigate=======================
 
     navigator(value) {
         console.log("Hello navigation")
 
     }
-
     //   ==================================================
 
 
@@ -64,55 +61,54 @@ export default class TemperatureVC extends Component {
     //==============Identify Which conversion to Calcualate============
     converter(value, input) {
         console.log(input);
-    
         if (input == 'value1') {
-          this.setState({
-            ValueA: value,
-          })
-          if (this.state.from == 'Celsius' && this.state.to == 'Kelvin') {
             this.setState({
-              ValueB: String((parseInt(value) + 273.15).toFixed(2)),
-            });
-            console.log('Celsius TO Kelvin')
-          } else if (this.state.from == 'Celsius' && this.state.to == 'Frhn') {
-            this.setState({
-              ValueB: String(((parseInt(value) * (9 / 5) + 32)).toFixed(2)),
-            });
-            console.log('Celsius TO Frhn')
-          } else if (this.state.from == 'Kelvin' && this.state.to == 'Celsius') {
-            this.setState({
-              ValueB: String((parseInt(value) - 273.15).toFixed(2)),
-            });
-            console.log('Kelvin TO Celsius')
-          } else if (this.state.from == 'Kelvin' && this.state.to == 'Frhn') {
-            this.setState({
-              ValueB: String(((parseInt(value) - 273.15) * (9 / 5) + 32).toFixed(2)),
-            });
-            console.log('Kelvin TO Frhn')
-          } else if (this.state.from == 'Frhn' && this.state.to == 'Celsius') {
-            this.setState({
-              ValueB: String(((parseInt(value) - 32) * (5 / 9)).toFixed(2)),
-            });
-            console.log('Frhn TO Celsius')
-          } else if (this.state.from == 'Frhn' && this.state.to == 'Kelvin') {
-            this.setState({
-              ValueB: String(((parseInt(value) - 32) * (5 / 9) + 273.15).toFixed(2)),
-            });
-            console.log('Frhn TO Kelvin')
-          } else if (this.state.from == 'Celsius' && this.state.to == 'Celsius') {
-            this.setState({
-              ValueB: value,
-            });
-            console.log('Celsius TO Celsius')
-          } else if (this.state.from == 'Kelvin' && this.state.to == 'Kelvin') {
-            this.setState({
-              ValueB: value,
-            });
-            console.log('Kelvin TO Kelvin')
-          }
-    
-        } 
-      }
+                ValueA: value,
+            })
+            if (this.state.from == 'Celsius' && this.state.to == 'Kelvin') {
+                this.setState({
+                    ValueB: String((parseInt(value) + 273.15).toFixed(2)),
+                });
+                console.log('Celsius TO Kelvin')
+            } else if (this.state.from == 'Celsius' && this.state.to == 'Frhn') {
+                this.setState({
+                    ValueB: String(((parseInt(value) * (9 / 5) + 32)).toFixed(2)),
+                });
+                console.log('Celsius TO Frhn')
+            } else if (this.state.from == 'Kelvin' && this.state.to == 'Celsius') {
+                this.setState({
+                    ValueB: String((parseInt(value) - 273.15).toFixed(2)),
+                });
+                console.log('Kelvin TO Celsius')
+            } else if (this.state.from == 'Kelvin' && this.state.to == 'Frhn') {
+                this.setState({
+                    ValueB: String(((parseInt(value) - 273.15) * (9 / 5) + 32).toFixed(2)),
+                });
+                console.log('Kelvin TO Frhn')
+            } else if (this.state.from == 'Frhn' && this.state.to == 'Celsius') {
+                this.setState({
+                    ValueB: String(((parseInt(value) - 32) * (5 / 9)).toFixed(2)),
+                });
+                console.log('Frhn TO Celsius')
+            } else if (this.state.from == 'Frhn' && this.state.to == 'Kelvin') {
+                this.setState({
+                    ValueB: String(((parseInt(value) - 32) * (5 / 9) + 273.15).toFixed(2)),
+                });
+                console.log('Frhn TO Kelvin')
+            } else if (this.state.from == 'Celsius' && this.state.to == 'Celsius') {
+                this.setState({
+                    ValueB: value,
+                });
+                console.log('Celsius TO Celsius')
+            } else if (this.state.from == 'Kelvin' && this.state.to == 'Kelvin') {
+                this.setState({
+                    ValueB: value,
+                });
+                console.log('Kelvin TO Kelvin')
+            }
+
+        }
+    }
     //   =============================================================
 
 
@@ -135,12 +131,11 @@ export default class TemperatureVC extends Component {
                                 <Picker.Item label="Speed Converter" value="Speed" />
                                 <Picker.Item label="Volume Converter" value="Volume" />
                                 <Picker.Item label="Age Checker" value="Age" />
-
                             </Picker>
                         </View>
                     </View>
 
-
+                    {/* Exchange Image==== */}
                     <View style={globalStyle.conversionContainer}>
                         <View style={globalStyle.imageConatiner}>
                             <Image
@@ -167,7 +162,6 @@ export default class TemperatureVC extends Component {
                                 <Picker.Item label="Celsius" value="Celsius" />
                                 <Picker.Item label="Kelvin" value="Kelvin" />
                                 <Picker.Item label="Fahrenheit " value="Frhn" />
-
                             </Picker>
                         </View>
 
@@ -182,7 +176,6 @@ export default class TemperatureVC extends Component {
                                 style={globalStyle.inputBox}
                                 keyboardType={'numeric'}
                                 placeholder={'Enter Value'}
-
                                 value={this.state.ValueA}
                                 onChangeText={(value) => this.converter(value, 'value1')}
                             />
@@ -197,7 +190,6 @@ export default class TemperatureVC extends Component {
                             </View>
                             <TextInput
                                 editable={false}
-
                                 style={globalStyle.inputBox}
                                 keyboardType={'numeric'}
                                 value={this.state.ValueB}
@@ -213,12 +205,10 @@ export default class TemperatureVC extends Component {
                                 <View style={globalStyle.button} >
                                     <Text style={globalStyle.btnText}>
                                         Clear
-                  </Text>
+                                    </Text>
                                 </View>
-
                             </View>
                         </TouchableOpacity>
-
                     </View>
                 </View>
             </ScrollView>

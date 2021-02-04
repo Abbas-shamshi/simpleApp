@@ -8,7 +8,6 @@ import {
     TouchableOpacity
 } from 'react-native';
 import { Picker } from '@react-native-community/picker';
-
 import globalStyle from '../style';
 
 export default class SpeedVC extends Component {
@@ -22,7 +21,6 @@ export default class SpeedVC extends Component {
         to: 'Knots',
         exchangeImage: 'https://newtonfoxbds.com/wp-content/uploads/2017/01/Two_way-data-exchange.gif',
         navName: "Speed"
-
     };
 
     // ================To Navigate=======================
@@ -31,7 +29,6 @@ export default class SpeedVC extends Component {
         console.log("Hello navigation")
 
     }
-
     //   ==================================================
 
 
@@ -69,7 +66,6 @@ export default class SpeedVC extends Component {
 
     converter(value, input) {
         console.log(input);
-
         if (input == 'value1') {
             this.setState({
                 ValueA: value,
@@ -155,11 +151,8 @@ export default class SpeedVC extends Component {
                 });
                 console.log('Kph TO Kph')
             }
-
         }
-
     }
-
     //   =================================================================
 
 
@@ -170,6 +163,8 @@ export default class SpeedVC extends Component {
                 <View style={globalStyle.container}>
                     <View style={globalStyle.headContainer}>
                         <View style={globalStyle.headTextContainer}>
+
+                            {/* Navigate Different Pages */}
                             <Picker
                                 style={globalStyle.pickerHeader}
                                 onValueChange={(value) => this.navigator(value)}
@@ -181,20 +176,19 @@ export default class SpeedVC extends Component {
                                 <Picker.Item label="Temperature Converter" value="Temperature" />
                                 <Picker.Item label="Volume Converter" value="Volume" />
                                 <Picker.Item label="Age Checker" value="Age" />
-
                             </Picker>
                         </View>
                     </View>
 
-
+                    {/* Exchange Image==== */}
                     <View style={globalStyle.conversionContainer}>
                         <View style={globalStyle.imageConatiner}>
                             <Image
                                 style={globalStyle.currencyImage}
                                 source={{ uri: this.state.exchangeImage }} />
-
                         </View>
 
+                        {/* Select Different Conversion Options */}
                         <View style={globalStyle.dropDownContainer}>
                             <Picker
                                 selectedValue={this.state.from}
@@ -215,10 +209,10 @@ export default class SpeedVC extends Component {
                                 <Picker.Item label="Kph" value="Kph" />
                                 <Picker.Item label="Knots" value="Knots" />
                                 <Picker.Item label="MPS" value="MPS" />
-
                             </Picker>
                         </View>
 
+                        {/* Accept input for conversion */}
                         <View style={globalStyle.inputBoxContainer}>
                             <View style={globalStyle.currencyValueContainer}>
                                 <Text style={globalStyle.CurrencyValue}>
@@ -228,13 +222,10 @@ export default class SpeedVC extends Component {
                             <TextInput
                                 style={globalStyle.inputBox}
                                 placeholder={'Enter Value'}
-
                                 keyboardType={'numeric'}
                                 value={this.state.ValueA}
                                 onChangeText={(value) => this.converter(value, 'value1')}
                             />
-
-
                         </View>
                         <View style={globalStyle.inputBoxContainer}>
                             <View style={globalStyle.currencyValueContainer}>
@@ -249,21 +240,19 @@ export default class SpeedVC extends Component {
                                 value={this.state.ValueB}
                                 onChangeText={(value) => this.converter(value, 'value2')}
                             />
-
-
                         </View>
+
+                        {/* To Clear the Inputs */}
                         <TouchableOpacity
                             onPress={this.clear}>
                             <View style={globalStyle.inputBoxContainer}>
                                 <View style={globalStyle.button} >
                                     <Text style={globalStyle.btnText}>
                                         Clear
-                  </Text>
+                                    </Text>
                                 </View>
-
                             </View>
                         </TouchableOpacity>
-
                     </View>
                 </View>
             </ScrollView>

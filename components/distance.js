@@ -4,12 +4,10 @@ import {
     View,
     TouchableOpacity,
     Image,
-    Dimensions,
     ScrollView,
     TextInput,
 } from 'react-native';
 import { Picker } from '@react-native-community/picker';
-
 import globalStyle from '../style'
 
 export default class DistanceVC extends Component {
@@ -17,7 +15,6 @@ export default class DistanceVC extends Component {
         super(props);
     }
     state = {
-
         ValueA: '',
         ValueB: '',
         from: 'KM',
@@ -27,13 +24,10 @@ export default class DistanceVC extends Component {
     };
 
 
-
-
     //========================= Identify and Calculate ================================
 
     converter(value, input) {
         console.log(input);
-
         if (input == 'value1') {
             this.setState({
                 ValueA: value,
@@ -119,10 +113,8 @@ export default class DistanceVC extends Component {
                 });
                 console.log('CM TO CM')
             }
-
         }
     }
-
     // =========================================================================
 
 
@@ -143,7 +135,6 @@ export default class DistanceVC extends Component {
             })
         }
     }
-
     //   =================================================
 
     // =============To Navigate================
@@ -152,7 +143,6 @@ export default class DistanceVC extends Component {
         console.log("Hello navigation")
 
     }
-
     //   ====================================================
 
 
@@ -184,12 +174,11 @@ export default class DistanceVC extends Component {
                                 <Picker.Item label="Speed Converter" value="Speed" />
                                 <Picker.Item label="Volume Converter" value="Volume" />
                                 <Picker.Item label="Age Checker" value="Age" />
-
                             </Picker>
                         </View>
                     </View>
 
-
+                    {/* Exchange Image==== */}
                     <View style={globalStyle.conversionContainer}>
                         <View style={globalStyle.imageConatiner}>
                             <Image
@@ -208,7 +197,6 @@ export default class DistanceVC extends Component {
                                 <Picker.Item label="Mile" value="Mile" />
                                 <Picker.Item label="CM" value="CM" />
                                 <Picker.Item label="Meter" value="Meter" />
-
                             </Picker>
                             <Picker
                                 selectedValue={this.state.to}
@@ -219,7 +207,6 @@ export default class DistanceVC extends Component {
                                 <Picker.Item label="Mile" value="Mile" />
                                 <Picker.Item label="CM" value="CM" />
                                 <Picker.Item label="Meter" value="Meter" />
-
                             </Picker>
                         </View>
 
@@ -233,14 +220,12 @@ export default class DistanceVC extends Component {
                             <TextInput
                                 style={globalStyle.inputBox}
                                 placeholder={'Enter Value'}
-
                                 keyboardType={'numeric'}
                                 value={this.state.ValueA}
                                 onChangeText={(value) => this.converter(value, 'value1')}
                             />
-
-
                         </View>
+
                         <View style={globalStyle.inputBoxContainer}>
                             <View style={globalStyle.currencyValueContainer}>
                                 <Text style={globalStyle.CurrencyValue}>
@@ -254,8 +239,8 @@ export default class DistanceVC extends Component {
                                 value={this.state.ValueB}
                                 onChangeText={(value) => this.converter(value, 'value2')}
                             />
-
                         </View>
+
                         {/* To Clear the Inputs */}
                         <TouchableOpacity
                             onPress={this.clear}>
@@ -263,12 +248,10 @@ export default class DistanceVC extends Component {
                                 <View style={globalStyle.button} >
                                     <Text style={globalStyle.btnText}>
                                         Clear
-                  </Text>
+                                    </Text>
                                 </View>
-
                             </View>
                         </TouchableOpacity>
-
                     </View>
                 </View>
             </ScrollView>

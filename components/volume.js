@@ -9,7 +9,6 @@ import {
 
 } from 'react-native';
 import { Picker } from '@react-native-community/picker';
-
 import globalStyle from '../style';
 
 export default class VolumeVC extends Component {
@@ -24,14 +23,12 @@ export default class VolumeVC extends Component {
         exchangeImage: 'https://newtonfoxbds.com/wp-content/uploads/2017/01/Two_way-data-exchange.gif',
     };
 
-
     // ================To Navigate=======================
 
     navigator(value) {
         console.log("Hello navigation")
 
     }
-
     //   ==================================================
 
 
@@ -61,14 +58,12 @@ export default class VolumeVC extends Component {
             })
         }
     }
-
     // ================================================================
 
 
     //==============Identify Which conversion to Calcualate============
     converter(value, input) {
         console.log(input);
-
         if (input == 'value1') {
             this.setState({
                 ValueA: value,
@@ -156,7 +151,6 @@ export default class VolumeVC extends Component {
             }
         }
     }
-
     //   =============================================================
 
     render() {
@@ -178,17 +172,16 @@ export default class VolumeVC extends Component {
                                 <Picker.Item label="Temperature Converter" value="Temperature" />
                                 <Picker.Item label="Speed Converter" value="Speed" />
                                 <Picker.Item label="Age Checker" value="Age" />
-
                             </Picker>
                         </View>
                     </View>
 
+                    {/* Exchange Image==== */}
                     <View style={globalStyle.conversionContainer}>
                         <View style={globalStyle.imageConatiner}>
                             <Image
                                 style={globalStyle.currencyImage}
                                 source={{ uri: this.state.exchangeImage }} />
-
                         </View>
 
                         {/* Select Different Conversion Options */}
@@ -212,7 +205,6 @@ export default class VolumeVC extends Component {
                                 <Picker.Item label="Liter" value="Ltr" />
                                 <Picker.Item label="Milliliter" value="Ml" />
                                 <Picker.Item label="Pint" value="Pint" />
-
                             </Picker>
                         </View>
 
@@ -231,8 +223,6 @@ export default class VolumeVC extends Component {
                                 value={this.state.ValueA}
                                 onChangeText={(value) => this.converter(value, 'value1')}
                             />
-
-
                         </View>
                         <View style={globalStyle.inputBoxContainer}>
                             <View style={globalStyle.currencyValueContainer}>
@@ -247,8 +237,6 @@ export default class VolumeVC extends Component {
                                 value={this.state.ValueB}
                                 onChangeText={(value) => this.converter(value, 'value2')}
                             />
-
-
                         </View>
 
                         {/* To Clear the Inputs */}
@@ -258,12 +246,10 @@ export default class VolumeVC extends Component {
                                 <View style={globalStyle.button} >
                                     <Text style={globalStyle.btnText}>
                                         Clear
-                  </Text>
+                                    </Text>
                                 </View>
-
                             </View>
                         </TouchableOpacity>
-
                     </View>
                 </View>
             </ScrollView>

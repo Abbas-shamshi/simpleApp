@@ -21,7 +21,6 @@ export default class WeightVC extends Component {
         to: 'Pound',
         exchangeImage: 'https://newtonfoxbds.com/wp-content/uploads/2017/01/Two_way-data-exchange.gif',
     };
-
     // ================To Navigate=======================
 
     navigator(value) {
@@ -30,7 +29,6 @@ export default class WeightVC extends Component {
     }
 
     //   ==================================================
-
 
     // =====================To reset Values ===============
     clear = () => {
@@ -57,14 +55,12 @@ export default class WeightVC extends Component {
             })
         }
     }
-
     // ================================================================
 
     //==============Identify Which conversion to Calcualate============
 
     converter(value, input) {
         console.log(input);
-
         if (input == 'value1') {
             this.setState({
                 ValueA: value,
@@ -174,12 +170,11 @@ export default class WeightVC extends Component {
                                 <Picker.Item label="Speed Converter" value="Speed" />
                                 <Picker.Item label="Volume Converter" value="Volume" />
                                 <Picker.Item label="Age Checker" value="Age" />
-
                             </Picker>
                         </View>
                     </View>
 
-
+                    {/* Exchange Image==== */}
                     <View style={globalStyle.conversionContainer}>
                         <View style={globalStyle.imageConatiner}>
                             <Image
@@ -198,7 +193,6 @@ export default class WeightVC extends Component {
                                 <Picker.Item label="Pound" value="Pound" />
                                 <Picker.Item label="Gram" value="Gram" />
                                 <Picker.Item label="Ounces" value="Ounces" />
-
                             </Picker>
                             <Picker
                                 selectedValue={this.state.to}
@@ -209,7 +203,6 @@ export default class WeightVC extends Component {
                                 <Picker.Item label="Pound" value="Pound" />
                                 <Picker.Item label="Gram" value="Gram" />
                                 <Picker.Item label="Ounces" value="Ounces" />
-
                             </Picker>
                         </View>
 
@@ -237,7 +230,6 @@ export default class WeightVC extends Component {
                             </View>
                             <TextInput
                                 editable={false}
-
                                 style={globalStyle.inputBox}
                                 keyboardType={'numeric'}
                                 value={this.state.ValueB}
@@ -252,12 +244,10 @@ export default class WeightVC extends Component {
                                 <View style={globalStyle.button} >
                                     <Text style={globalStyle.btnText}>
                                         Clear
-                  </Text>
+                                    </Text>
                                 </View>
-
                             </View>
                         </TouchableOpacity>
-
                     </View>
                 </View>
             </ScrollView>
