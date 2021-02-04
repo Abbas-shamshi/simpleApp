@@ -7,7 +7,7 @@ import {
     ScrollView,
     TextInput,
 } from 'react-native';
-// import axios from 'axios';
+import axios from 'axios';
 import { Picker } from '@react-native-community/picker';
 
 import globalStyle from '../style'
@@ -24,6 +24,63 @@ export default class Currency extends Component {
         to: 'INR',
         exchangeImage: 'https://newtonfoxbds.com/wp-content/uploads/2017/01/Two_way-data-exchange.gif',
     };
+
+    // ================To Navigate=======================
+
+    navigator(value) {
+        console.log("Hello navigation")
+
+    }
+
+    //   ==================================================
+
+
+    // =====================To reset Values ===============
+    clear = () => {
+        this.setState({
+            ValueA: '',
+            ValueB: '',
+        })
+    }
+    // =====================================================
+
+    // ======= Set and calculate values (option 1) =========
+
+    converterA = (value) => {
+        this.setState({
+            ValueA: value,
+        })
+        axios
+            .get(`http://api.openrates.io/latest?base=${this.state.from}&symbols=${this.state.to}`)
+            .then(response => {
+                this.setState({
+                    ValueB: String((parseInt(value) * parseFloat(response.data.rates[this.state.to])).toFixed(2)),
+                })
+            })
+            .catch(error => {
+                console.log("opps", error.message);
+            })
+    };
+    // =====================================================
+
+    // ======= Set and calculate values (option 2) =========
+
+    converterB(value) {
+        this.setState({
+            ValueB: value,
+        })
+        axios
+            .get(`http://api.openrates.io/latest?base=${this.state.to}&symbols=${this.state.from}`)
+            .then(response => {
+                this.setState({
+                    ValueA: String((parseInt(value) * parseFloat(response.data.rates[this.state.from])).toFixed(2)),
+                })
+            })
+            .catch(error => {
+                console.log("opps", error.message);
+            })
+    }
+    // =====================================================
 
     render() {
         return (
