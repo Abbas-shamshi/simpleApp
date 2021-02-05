@@ -17,7 +17,19 @@ export default StyleSheet.create({
 
 
 
-
+    headContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-evenly',
+        width: deviceWidth,
+        height: deviceHeight / 6,
+        backgroundColor: '#10A5F5',
+      },
+      
+      headText: {
+        fontSize: deviceHeight / 21,
+        color: 'white',
+      },
     inputBoxContainer: {
         display: 'flex',
         flexDirection: 'row',
@@ -135,5 +147,29 @@ export default StyleSheet.create({
         marginTop: 10,
         justifyContent: 'center'
     },
+    flexContainer:{
+        display:'flex',
+        flexDirection:'row',
+        justifyContent:'space-around'
+    },
+    buttonContainer: {
+        height: deviceHeight / 10,
+        width: (3 * deviceWidth) / 7,
+        backgroundColor: '#10A5F5',
+        marginHorizontal: 'auto',
+        marginVertical: 20,
+        borderRadius: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+      buttonText: {
+        fontSize: deviceHeight / 30,
+        color: 'white',
+      },
+      logo:{
+        width: deviceWidth / 5,
+        height:deviceHeight/9
+      }
+
 
 });
