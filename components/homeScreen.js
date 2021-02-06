@@ -9,7 +9,7 @@ import {
   ScrollView,
 
 } from 'react-native';
-
+import LinearGradient from 'react-native-linear-gradient';
 import globalStyle from '../style'
 
 let deviceHeight = Dimensions.get('window').height;
@@ -20,7 +20,7 @@ export default class HomeScreen extends Component {
     super(props);
   }
   state = {
-    icon:'https://cdn.pixabay.com/photo/2018/02/27/01/53/gene-function-3184518_960_720.png'
+    icon: 'https://cdn.pixabay.com/photo/2018/02/27/01/53/gene-function-3184518_960_720.png'
   };
 
   _handleTextChange = (inputValue) => {
@@ -38,66 +38,66 @@ export default class HomeScreen extends Component {
         <View style={styles.container}>
 
           {/* Heading */}
-          <View style={globalStyle.headContainer}>
+          <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={['#4878db', '#3b5998', '#192f6a']} style={globalStyle.headContainer}>
             <Image
               style={globalStyle.logo}
               source={{ uri: this.state.icon }} />
             <Text style={globalStyle.headText}>Simple App</Text>
-          </View>
+          </LinearGradient>
 
           <View style={globalStyle.flexContainer}>
             {/* Distance Button Layout */}
             <TouchableOpacity onPress={() => this.navigator('Currency')}>
-              <View style={globalStyle.buttonContainer}>
+              <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={['#4878db', '#3b5998', '#192f6a']} style={globalStyle.buttonContainer}>
                 <Text style={globalStyle.buttonText}>Currency</Text>
-              </View>
+              </LinearGradient>
             </TouchableOpacity>
 
             {/* Weight Button Layout */}
             <TouchableOpacity onPress={() => this.navigator('Distance')}>
-              <View style={globalStyle.buttonContainer}>
+              <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={['#4878db', '#3b5998', '#192f6a']} style={globalStyle.buttonContainer}>
                 <Text style={globalStyle.buttonText}>Distance</Text>
-              </View>
+              </LinearGradient>
             </TouchableOpacity>
           </View>
           <View style={globalStyle.flexContainer}>
 
             {/* Weight Button Layout */}
             <TouchableOpacity onPress={() => this.navigator('Weight')}>
-              <View style={globalStyle.buttonContainer}>
+              <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={['#4878db', '#3b5998', '#192f6a']} style={globalStyle.buttonContainer}>
                 <Text style={globalStyle.buttonText}>Weight</Text>
-              </View>
+              </LinearGradient>
             </TouchableOpacity>
 
             {/* Temperature Button Layout */}
             <TouchableOpacity onPress={() => this.navigator('Temperature')}>
-              <View style={globalStyle.buttonContainer}>
+              <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={['#4878db', '#3b5998', '#192f6a']} style={globalStyle.buttonContainer}>
                 <Text style={globalStyle.buttonText}>Temperature</Text>
-              </View>
+              </LinearGradient>
             </TouchableOpacity>
           </View>
           <View style={globalStyle.flexContainer}>
 
             {/* Speed Button Layout */}
             <TouchableOpacity onPress={() => this.navigator('Speed')}>
-              <View style={globalStyle.buttonContainer}>
+              <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={['#4878db', '#3b5998', '#192f6a']} style={globalStyle.buttonContainer}>
                 <Text style={globalStyle.buttonText}>Speed</Text>
-              </View>
+              </LinearGradient>
             </TouchableOpacity>
             {/* Volume Button */}
             <TouchableOpacity onPress={() => this.navigator('Volume')}>
-              <View style={globalStyle.buttonContainer}>
+              <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={['#4878db', '#3b5998', '#192f6a']} style={globalStyle.buttonContainer}>
                 <Text style={globalStyle.buttonText}>Volume</Text>
-              </View>
+              </LinearGradient>
             </TouchableOpacity>
           </View>
           <View style={globalStyle.flexContainer}>
 
             {/* Age Checker Button Layout */}
             <TouchableOpacity onPress={() => this.navigator('Age')}>
-              <View style={globalStyle.buttonContainer}>
+              <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={['#4878db', '#3b5998', '#192f6a']} style={globalStyle.buttonContainer}>
                 <Text style={globalStyle.buttonText}>Age Checker</Text>
-              </View>
+              </LinearGradient>
             </TouchableOpacity>
           </View>
         </View >
@@ -111,9 +111,14 @@ const styles = StyleSheet.create({
     height: deviceHeight,
     width: deviceWidth,
   },
-
-
-
+  buttonText: {
+    fontSize: 18,
+    fontFamily: 'Gill Sans',
+    textAlign: 'center',
+    margin: 10,
+    color: '#ffffff',
+    backgroundColor: 'transparent',
+  },
 
 
   conversionHeadContainer: {

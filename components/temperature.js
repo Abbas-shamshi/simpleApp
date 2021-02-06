@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import { Picker } from '@react-native-community/picker';
 import globalStyle from '../style'
+import LinearGradient from 'react-native-linear-gradient';
 
 export default class TemperatureVC extends Component {
     constructor(props) {
@@ -202,11 +203,11 @@ export default class TemperatureVC extends Component {
                         <TouchableOpacity
                             onPress={this.clear}>
                             <View style={globalStyle.inputBoxContainer}>
-                                <View style={globalStyle.button} >
+                                <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={['#4878db', '#3b5998', '#192f6a']} style={globalStyle.button}>
                                     <Text style={globalStyle.btnText}>
                                         Clear
                                     </Text>
-                                </View>
+                                </LinearGradient>
                             </View>
                         </TouchableOpacity>
                     </View>

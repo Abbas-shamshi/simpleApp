@@ -23,7 +23,7 @@ export default StyleSheet.create({
         justifyContent: 'space-evenly',
         width: deviceWidth,
         height: deviceHeight / 6,
-        backgroundColor: '#10A5F5',
+        // backgroundColor: '#10A5F5',
       },
       
       headText: {
@@ -103,7 +103,7 @@ export default StyleSheet.create({
 
     },
     button:{
-        backgroundColor:'#10A5F5',
+        // backgroundColor:'#10A5F5',
         paddingHorizontal:50,
         paddingVertical:10,
         borderRadius:20
@@ -155,7 +155,7 @@ export default StyleSheet.create({
     buttonContainer: {
         height: deviceHeight / 10,
         width: (3 * deviceWidth) / 7,
-        backgroundColor: '#10A5F5',
+        // backgroundColor: '#10A5F5',
         marginHorizontal: 'auto',
         marginVertical: 20,
         borderRadius: 10,
