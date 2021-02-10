@@ -28,6 +28,7 @@ export default class SpeedVC extends Component {
 
     navigator(value) {
         console.log("Hello navigation")
+        this.props.navigation.navigate(value);
 
     }
     //   ==================================================

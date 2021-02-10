@@ -29,6 +29,7 @@ export default class Currency extends Component {
 
     navigator(value) {
         console.log("Hello navigation")
+        this.props.navigation.navigate(value);
 
     }
 

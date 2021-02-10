@@ -27,6 +27,7 @@ export default class AgeChecker extends Component {
 
     navigator(value) {
         console.log("Hello navigation")
+        this.props.navigation.navigate(value);
 
     }
 
